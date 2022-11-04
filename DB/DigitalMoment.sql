@@ -20,3 +20,48 @@ INSERT INTO UN_SNG VALUES(16,'PEACE, JUSTICE AND STRING INSTITUTIONS');
 INSERT INTO UN_SNG VALUES(17,'PARTNERSHIPS FOR THE GOALS');
 CREATE TABLE ideas (ID INT Primary key NOT NULL, UserID TEXT NOT NULL, Description TEXT NOT NULL, City TEXT, Country TEXT, UNRefID INT, CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
 COMMIT;
+
+
+/* UserInfo Table and insert queries */
+
+CREATE TABLE UserInfo (
+    ID INTEGER PRIMARY KEY,
+    Email VARCHAR(30) NOT NULL,    
+    First_name VARCHAR(30) NOT NULL,
+    Last_name VARCHAR(30) NOT NULL,
+  	Phone_num BIGINT NOT NULL,
+    DoB DATE NOT NULL,
+    Gender VARCHAR(20) NOT NULL,
+    Street_num INTEGER NOT NULL,
+    Street_name VARCHAR(100) NOT NULL,
+    Postal_code VARCHAR(30) NOT NULL,
+    City VARCHAR(30) NOT NULL,
+    Province VARCHAR(30) NOT NULL,
+    Country VARCHAR(30) NOT NULL
+);
+INSERT INTO UserInfo(ID, Email, First_name, Last_name,
+  	Phone_num, DoB, Gender, Street_num, Street_name,
+    Postal_code, City, Province, Country) VALUES (1, 'samanthap@gmail.com', 'Samantha', 'Green', 6135608989,  
+    '2001-07-30', 'Female', 1019, 'Meow Street','K1R 7W6', 'Ottawa', 'Ontario', 'Canada');
+
+INSERT INTO UserInfo VALUES (2, 'hichamo@gmail.com', 'Hicham', 'Mazouzi', 4444444444,  
+    '2001-07-31', 'Male', 1020, 'Meow Street','K1R 7W6', 'Montreal', 'Quebec', 'Canada');
+
+INSERT INTO UserInfo VALUES (3, 'Test@gmail.com', 'Random', 'Guy', 5555555555,  
+    '2001-07-29', 'Male', 1021, 'Meow Street','K1R 7W6', 'MeowCity', 'MeowProvince', 'MeowCountry');
+
+
+/* Login Table and insert queries */
+
+CREATE TABLE Login(
+    Email VARCHAR(30) PRIMARY KEY,
+    Password VARCHAR(50) NOT NULL,
+    Role VARCHAR(20) NOT NULL,
+    ID INTEGER NOT NULL,
+
+    FOREIGN KEY(ID) REFERENCES UserInfo(ID)
+
+);
+
+INSERT INTO LoginVALUES('samanthap@gmail.com','papipapi123','user',1);
+INSERT INTO Login(Email, Password,Role, ID) VALUES('hichamo@gmail.com','papipapi123','admin',2);
