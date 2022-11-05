@@ -1,4 +1,4 @@
-import {Link} from 'react-scroll'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Button = styled(Link)`
@@ -15,10 +15,12 @@ export const Button = styled(Link)`
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
 
     &:hover{
         transition: all 0.2s ease-in-out;
         background: ${({primary}) => (primary ? '#fff' : 'blue')};
         color: black;
     }
+;
 `
