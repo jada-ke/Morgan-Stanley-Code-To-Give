@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../InfoSection/Button";
+import { Button } from "../InfoSection2/Button";
 import {
   InfoContainer,
   InfoWrapper,
@@ -14,10 +14,10 @@ import {
   ImgWrap,
   Img,
 } from "./InfoElements";
-import Image from "../../Images/undraw_browsing_online_re_umsa (1).svg";
+import Image from "../../Images/undraw_thought_process_re_om58.svg";
 import { useState } from "react";
 
-const InfoSection = () => {
+const InfoSection2 = () => {
   const [isHovering, setIsHovering] = useState(true);
 
   const [hover, setHover] = useState(true);
@@ -29,28 +29,27 @@ const InfoSection = () => {
     <>
       <InfoContainer>
         <InfoWrapper>
-          <InfoRow>
+          <InfoRow imgStart = "true">
             <Column1>
               <TextWrapper>
-                <TopLine>Challenges</TopLine>
+                <TopLine>Ideas</TopLine>
                 <Heading></Heading>
                 <Subtitle>
-                  Be able to communicate with other youth and share ideas for
-                  some challenges!
+                  Share your ideas around the globe. Your ideas matter!
                 </Subtitle>
                 <BtnWrap>
                   <Button
                     onMouseOver={onHover}
                     onMouseLeave={onHover}
-                    primary="true"
+                    primary="false"
                     dark="true"
-                    smooth = {true}
-                    duration = {500}
-                    spy = {true}
-                    exact = "true"
-                    offset = {-80}
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
                   >
-                    Go To Challenges
+                    Go To Ideas
                   </Button>
                 </BtnWrap>
               </TextWrapper>
@@ -67,4 +66,4 @@ const InfoSection = () => {
   );
 };
 
-export default InfoSection;
+export default InfoSection2;
