@@ -24,8 +24,9 @@ COMMIT;
 
 /* UserInfo Table and insert queries */
 
+
 CREATE TABLE UserInfo (
-    ID INTEGER PRIMARY KEY,
+    ID  SERIAL PRIMARY KEY , 
     Email VARCHAR(30) NOT NULL,    
     First_name VARCHAR(30) NOT NULL,
     Last_name VARCHAR(30) NOT NULL,
@@ -41,13 +42,13 @@ CREATE TABLE UserInfo (
 );
 INSERT INTO UserInfo(ID, Email, First_name, Last_name,
   	Phone_num, DoB, Gender, Street_num, Street_name,
-    Postal_code, City, Province, Country) VALUES (1, 'samanthap@gmail.com', 'Samantha', 'Green', 6135608989,  
+    Postal_code, City, Province, Country) VALUES (DEFAULT, 'samanthap@gmail.com', 'Samantha', 'Green', 6135608989,  
     '2001-07-30', 'Female', 1019, 'Meow Street','K1R 7W6', 'Ottawa', 'Ontario', 'Canada');
 
-INSERT INTO UserInfo VALUES (2, 'hichamo@gmail.com', 'Hicham', 'Mazouzi', 4444444444,  
+INSERT INTO UserInfo VALUES (DEFAULT, 'hichamo@gmail.com', 'Hicham', 'Mazouzi', 4444444444,  
     '2001-07-31', 'Male', 1020, 'Meow Street','K1R 7W6', 'Montreal', 'Quebec', 'Canada');
 
-INSERT INTO UserInfo VALUES (3, 'Test@gmail.com', 'Random', 'Guy', 5555555555,  
+INSERT INTO UserInfo VALUES (DEFAULT, 'Test@gmail.com', 'Random', 'Guy', 5555555555,  
     '2001-07-29', 'Male', 1021, 'Meow Street','K1R 7W6', 'MeowCity', 'MeowProvince', 'MeowCountry');
 
 
@@ -63,5 +64,5 @@ CREATE TABLE Login(
 
 );
 
-INSERT INTO LoginVALUES('samanthap@gmail.com','papipapi123','user',1);
+INSERT INTO Login VALUES('samanthap@gmail.com','papipapi123','user',1);
 INSERT INTO Login(Email, Password,Role, ID) VALUES('hichamo@gmail.com','papipapi123','admin',2);
