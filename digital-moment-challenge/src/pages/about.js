@@ -2,10 +2,10 @@ import Navbar from "../Components/Navbar"
 import Sidebar from "../Components/Sidebar"
 import React, {useState} from 'react';
 
-const Challenges = () => {
+const About = () => {
     return (
-        <h1>Challenges page to put here</h1>
+        <h1>About page to put here</h1>
     );
 };
 
-export default Challenges;
+export default About;
