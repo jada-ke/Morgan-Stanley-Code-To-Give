@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef, useState, useEffect} from 'react';
-import Navigate  from 'react-router-dom';
+import {Navigate}  from 'react-router-dom';
 
 
 
@@ -31,7 +31,7 @@ const Login = () => {
         try {
             var currentitem = {"username " : user, "password" : pwd}
             
-            fetch("", {           // to do : api call
+            fetch(server+'/Login/${currentitem["username"]}`', {           
                 method: "GET" }).then(res => res.json())
                 
                 .then( (result) =>{
@@ -125,24 +125,3 @@ const Login = () => {
 export default Login
 
 
-
-app.get('/login/:filter', async (req, res) => {
-    var user = req.params.filter
-   //  var pass = req.params.password
-   //  var role = req.params.role
-  
-   try {
-     
-   //AND  Password = $2 AND Role = $3
-   const response =   await pool.query("SELECT * from Login WHERE Username = $1  ;", [user]);
-     
-   res.json(response.rows[0]);
-   
-  
-     
-   } catch (error) {
-     console.log(error.message)
-   }
-   
-  
-  })

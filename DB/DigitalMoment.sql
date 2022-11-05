@@ -22,7 +22,7 @@ CREATE TABLE ideas (ID INT Primary key NOT NULL, UserID TEXT NOT NULL, Descripti
 COMMIT;
 
 
-/* UserInfo Table and insert queries */
+
 
 
 CREATE TABLE UserInfo (
@@ -52,7 +52,7 @@ INSERT INTO UserInfo VALUES (DEFAULT, 'Test@gmail.com', 'Random', 'Guy', 5555555
     '2001-07-29', 'Male', 1021, 'Meow Street','K1R 7W6', 'MeowCity', 'MeowProvince', 'MeowCountry');
 
 
-/* Login Table and insert queries */
+
 
 CREATE TABLE Login(
     Email VARCHAR(30) PRIMARY KEY,
