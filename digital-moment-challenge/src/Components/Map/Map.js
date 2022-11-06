@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { ICMarker,ICPopup,ICMapContainer } from "./MapElements.js";
-import{Icon} from "leaflet";
 import { styles} from "./MapElements.js";
 import '../../App.css';
 
@@ -20,12 +19,17 @@ export class Map extends Component {
             </head>
             <ICMapContainer center={[0,0]} zoom={2} scrollWheelZoom={true}>
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                 />
                 <ICMarker position={[45.42, -75.69]}>
                 <ICPopup>
-                 Test popup
+                `<div>
+                    Title
+                 </div>
+                 <div>
+                  Text  
+                 </div>HeyTest popup
                 </ICPopup>
                 </ICMarker>
             </ICMapContainer>  
