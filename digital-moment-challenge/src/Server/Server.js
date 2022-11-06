@@ -182,3 +182,83 @@ app.get('/Login/:filter', async (req, res) => {
   app.listen(5001, () => {
     console.log("server has started on port 5001");
   });
+
+
+
+// Ideas
+
+app.get('/Idea/:id', async (req, res) => {
+
+    try {
+      
+    const { id } = req.params;
+    const response =   await pool.query("SELECT * from ideas WHERE ID = $1;", [id]);
+    
+    res.json(response.rows[0]);
+  
+      
+    } catch (error) {
+      console.log(error.message)
+    }
+    
+  
+  })
+
+
+  app.get('/search/ideas/:filter', async (req, res) => {
+  
+  
+    var filter = JSON.parse(req.params.filter)
+    var pcode = '%'+filter[pcode] +'%'
+    var city = '%'+filter[city] +'%'
+    var country = '%'+filter[country] +'%'
+    
+    try {
+        
+      
+      const response = await pool.query('SELECT * from ideas WHERE UPPER(Postal_code) LIKE UPPER($1) AND UPPER(City) LIKE UPPER($2) AND UPPER(Country) LIKE UPPER($3) ORDER BY UpVotes ASC, DownVotes DESC;', [pcode,city,country]);
+      
+      res.json(response.rows);
+    
+        
+      } catch (error) {
+        console.log(error.message)
+      }
+      
+    
+    })
+
+    app.get('/Ideas', async (req, res) => {
+
+        try {
+          
+        const { id } = req.params;
+        const response =   await pool.query("SELECT * from ideas;");
+        
+        res.json(response.rows);
+      
+          
+        } catch (error) {
+          console.log(error.message)
+        }
+        
+      
+      })
+
+      app.get('/IdeasTrending', async (req, res) => {
+
+        try {
+          
+        const { id } = req.params;
+        const response =   await pool.query("SELECT * from ideas ORDER BY UpVotes ASC, DownVotes DESC;");
+        
+        res.json(response.rows);
+      
+          
+        } catch (error) {
+          console.log(error.message)
+        }
+        
+      
+      })
+
