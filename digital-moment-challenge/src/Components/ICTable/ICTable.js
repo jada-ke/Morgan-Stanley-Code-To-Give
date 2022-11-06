@@ -1,7 +1,18 @@
 import React, {Component} from "react";
-import { ICTableRow } from "./ICTableElements";
 
-export const ICTable = ({realData}) =>{
+export class ICTable extends Component{
     
-    console.log(realData);
+    render() {
+        const items = this.props.ic
+        return(
+            <>
+            <FilterTab></FilterTab>
+            {items.map(item =>
+                <div>
+                    item.id
+                </div>
+            )}
+            </>
+        )
+    }
 }
