@@ -10,7 +10,7 @@ const styles = {
 }
 
 export const ICMapContainer = styled(MapContainer)`
-    zIndex:1;
+    z-index: 2;
 `
 
 export const ICMarker = styled(Marker)`
