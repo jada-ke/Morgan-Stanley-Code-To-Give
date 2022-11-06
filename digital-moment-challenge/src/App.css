@@ -4,3 +4,7 @@
   padding: 0;
   font-family: 'Encode Sans Expanded', sans-serif;
 }
+.leaflet-container{
+  width: 90%;
+  height: 100vh;
+}
