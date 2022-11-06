@@ -179,10 +179,7 @@ app.get('/Login/:filter', async (req, res) => {
   })
   
 
-  app.listen(5001, () => {
-    console.log("server has started on port 5001");
-  });
-
+  
 
 
 // Ideas
@@ -216,7 +213,7 @@ app.get('/Idea/:id', async (req, res) => {
     try {
         
       
-      const response = await pool.query('SELECT * from ideas WHERE UPPER(Postal_code) LIKE UPPER($1) AND UPPER(City) LIKE UPPER($2) AND UPPER(Country) LIKE UPPER($3) ORDER BY UpVotes ASC, DownVotes DESC;', [pcode,city,country]);
+      const response = await pool.query('SELECT * from ideas WHERE UPPER(Postal_code) LIKE UPPER($1) AND UPPER(City) LIKE UPPER($2) AND UPPER(Country) LIKE UPPER($3) ORDER BY UpVotes DESC, DownVotes ASC;', [pcode,city,country]);
       
       res.json(response.rows);
     
@@ -250,7 +247,7 @@ app.get('/Idea/:id', async (req, res) => {
         try {
           
         const { id } = req.params;
-        const response =   await pool.query("SELECT * from ideas ORDER BY UpVotes ASC, DownVotes DESC;");
+        const response =   await pool.query("SELECT * from ideas ORDER BY UpVotes DESC, DownVotes ASC;");
         
         res.json(response.rows);
       
@@ -262,3 +259,9 @@ app.get('/Idea/:id', async (req, res) => {
       
       })
 
+
+
+      app.listen(5001, () => {
+        console.log("server has started on port 5001");
+      });
+    
