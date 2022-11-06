@@ -18,13 +18,32 @@ INSERT INTO UN_SNG VALUES(14,'LIFE BELOW WATER');
 INSERT INTO UN_SNG VALUES(15,'LIFE ON LAND');
 INSERT INTO UN_SNG VALUES(16,'PEACE, JUSTICE AND STRING INSTITUTIONS');
 INSERT INTO UN_SNG VALUES(17,'PARTNERSHIPS FOR THE GOALS');
-CREATE TABLE ideas (ID INT Primary key NOT NULL, UserID TEXT NOT NULL,DatePoste DATE NOT NULL, UpVotes INT NOT NULL, DownVotes INT NOT NULL, Description TEXT NOT NULL,Postal_code VARCHAR(30) NOT NULL, City TEXT, Country TEXT, UNRefID INT, CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
-CREATE TABLE challenges (ID INT Primary key NOT NULL, UserID TEXT NOT NULL,DatePoste DATE NOT NULL, UpVotes INT NOT NULL, DownVotes INT NOT NULL, Description TEXT NOT NULL,Postal_code VARCHAR(30) NOT NULL, City TEXT, Country TEXT, UNRefID INT, CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
+CREATE TABLE ideas (ID INT Primary key NOT NULL, UserID TEXT NOT NULL,
+					DatePosted DATE NOT NULL, UpVotes INT NOT NULL, 
+					DownVotes INT NOT NULL, Description TEXT NOT NULL,
+					Postal_code VARCHAR(30) NOT NULL, City TEXT, 
+					Country TEXT, Tag TEXT, UNRefID INT, 
+					CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
 
-
+CREATE TABLE challenges (ID INT Primary key NOT NULL, UserID TEXT NOT NULL,
+						 DatePosted DATE NOT NULL, UpVotes INT NOT NULL, 
+						 DownVotes INT NOT NULL, Description TEXT NOT NULL,
+						 Postal_code VARCHAR(30) NOT NULL, City TEXT, 
+						 Country TEXT, Tag TEXT, UNRefID INT, 
+						 CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
 COMMIT;
 
+insert into ideas values(100,'Anirudh','2022-11-05',7,13,'SAMPLE','H2X 2V1','Montreal','Canada','Environment');
+insert into ideas values(101,'John Doe','2022-11-03',6,2,'Test','H3Y 2V4','Calgary','Canada','Poverty');
+insert into ideas values(102,'Jane Doe','2022-11-01',3,9,'SampleTest','H4X 2V2','Waterloo','Canada','Inequality');
+insert into ideas values(103,'Aegon','2022-11-04',9,11,'TestSample','H3X 3V2','New York','USA','Electricity');
+insert into ideas values(104,'Aemond','2022-11-05',0,1,'Something','H3Z 2V2','Dallas','USA','Peace');
 
+insert into challenges values(200,'Jon Snow','2022-11-05',8,13,'SAMPLE','H2X 2V1','Quebec City','Canada','Peace');
+insert into challenges values(201,'Stark','2022-12-03',6,12,'Test','H3Y 2V4','Vancouver','Canada','Water');
+insert into challenges values(202,'Targeryan','2022-12-01',13,9,'SampleTest','H4X 2V2','Burnaby','Canada','Inequality');
+insert into challenges values(203,'HighTower','2022-12-04',9,21,'TestSample','H3X 3V2','San Fransisco','USA','Environment');
+insert into challenges values(204,'Baratheon','2022-12-05',10,13,'Something','H3Z 2V2','Houston','USA','Peace');
 
 
 
