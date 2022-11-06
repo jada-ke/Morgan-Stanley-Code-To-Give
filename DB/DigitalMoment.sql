@@ -31,7 +31,6 @@ CREATE TABLE challenges (ID INT Primary key NOT NULL, UserID TEXT NOT NULL,
 						 Postal_code VARCHAR(30) NOT NULL, City TEXT, 
 						 Country TEXT, Tag TEXT, UNRefID INT, 
 						 CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
-COMMIT;
 
 insert into ideas values(100,'Anirudh','2022-11-05',7,13,'SAMPLE','H2X 2V1','Montreal','Canada','Environment');
 insert into ideas values(101,'John Doe','2022-11-03',6,2,'Test','H3Y 2V4','Calgary','Canada','Poverty');
@@ -44,6 +43,8 @@ insert into challenges values(201,'Stark','2022-12-03',6,12,'Test','H3Y 2V4','Va
 insert into challenges values(202,'Targeryan','2022-12-01',13,9,'SampleTest','H4X 2V2','Burnaby','Canada','Inequality');
 insert into challenges values(203,'HighTower','2022-12-04',9,21,'TestSample','H3X 3V2','San Fransisco','USA','Environment');
 insert into challenges values(204,'Baratheon','2022-12-05',10,13,'Something','H3Z 2V2','Houston','USA','Peace');
+
+COMMIT;
 
 
 
