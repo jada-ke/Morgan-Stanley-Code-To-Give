@@ -32,17 +32,27 @@ CREATE TABLE challenges (ID INT Primary key NOT NULL, UserID TEXT NOT NULL,
 						 Country TEXT, Lat FLOAT NOT NULL, Long FLOAT NOT NULL, Tag TEXT, UNRefID INT, 
 						 CONSTRAINT fk_UN_SNG FOREIGN KEY (UNRefID) REFERENCES UN_SNG(ID));
 
-insert into ideas values(100,'Anirudh','2022-11-05',7,13,'SAMPLE','H2X 2V1','Montreal','Canada',45.5019,73.5674,'Environment');
+insert into ideas values(100,'Anirudh','2022-11-05',7,13,'SAMPLE','H2X 2V1','Montreal','Canada',45.5019,-73.5674,'Environment');
 insert into ideas values(101,'John Doe','2022-11-03',6,2,'Test','H3Y 2V4','Calgary','Canada',51.0447,114.0719,'Poverty');
 insert into ideas values(102,'Jane Doe','2022-11-01',3,9,'SampleTest','H4X 2V2','Waterloo','Canada',43.4643,80.5204,'Inequality');
 insert into ideas values(103,'Aegon','2022-11-04',9,11,'TestSample','H3X 3V2','New York','USA',40.7128,74.0060,'Electricity');
 insert into ideas values(104,'Aemond','2022-11-05',0,1,'Something','H3Z 2V2','Dallas','USA',32.7767,96.7970,'Peace');
+insert into ideas values(300,'David','2022-10-05',7,13,'SAMPLE','500017','New Delhi','India',28.613939,77.209023,'Environment');
+insert into ideas values(301,'Jake','2022-09-05',7,53,'Test','700017','Lahore','Pakisthan',31.520370,74.358749,'Peace');
+insert into ideas values(302,'Amy','2022-05-05',6,16,'SampleTest','500117','Cape Town','South Africa',-33.924870,18.424055,'Poverty');
+insert into ideas values(401,'Rob','2022-07-15',4,12,'Test','900117','Canberra','Australia',-35.280937,149.130005,'Electricity');
+insert into ideas values(401,'Robin','2022-07-25',41,2,'TestSample','30117','Kingston','Jamaica',38.280937,-149.130005,'Inequality');
 
-insert into challenges values(200,'Jon Snow','2022-11-05',8,13,'SAMPLE','H2X 2V1','Quebec City','Canada',46.8131,71.2075,'Peace');
+insert into challenges values(200,'Jon Snow','2022-11-05',8,13,'SAMPLE','H2X 2V1','Quebec City','Canada',46.8131,-71.2075,'Peace');
 insert into challenges values(201,'Stark','2022-12-03',6,12,'Test','H3Y 2V4','Vancouver','Canada',49.2827,123.1207,'Water');
 insert into challenges values(202,'Targeryan','2022-12-01',13,9,'SampleTest','H4X 2V2','Burnaby','Canada',49.2488,122.9805,'Inequality');
-insert into challenges values(203,'HighTower','2022-12-04',9,21,'TestSample','H3X 3V2','San Fransisco','USA',37.7749,122.4194,'Environment');
-insert into challenges values(204,'Baratheon','2022-12-05',10,13,'Something','H3Z 2V2','Houston','USA',29.7604,95.3698,'Peace');
+insert into challenges values(203,'HighTower','2022-12-04',9,21,'TestSample','H3X 3V2','San Fransisco','USA',-37.7749,122.4194,'Environment');
+insert into challenges values(204,'Baratheon','2022-12-05',10,13,'Something','H3Z 2V2','Houston','USA',29.7604,-95.3698,'Peace');
+insert into challenges values(300,'Dan','2022-10-05',7,13,'SAMPLE','500017','New Delhi','India',50.535785,-122.218772,'Environment');
+insert into challenges values(301,'Wick','2022-09-25',7,53,'Test','700017','Lahore','Pakisthan',31.520370,74.358749,'Peace');
+insert into challenges values(302,'Sam','2022-05-15',6,16,'SampleTest','500117','Cape Town','South Africa',-33.924870,18.424055,'Poverty');
+insert into challenges values(401,'Cobbie','2022-04-15',4,12,'Test','900117','Canberra','Australia',58.152161,-471.912720,'Electricity');
+insert into challenges values(401,'Natalie','2022-01-25',41,2,'TestSample','30117','Kingston','Jamaica',46.583038,-80.706697,'Inequality');
 
 COMMIT;
 
