@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect} from 'react';
+
 import Map from '../Components/Map/Map';
 
 
@@ -27,6 +28,7 @@ const Discover = () => {
         <>
             
             <Map markers={items}/>
+            
         </>
     );
 };
