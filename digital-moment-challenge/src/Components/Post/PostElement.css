@@ -1,0 +1,72 @@
+
+body{
+    margin: 40px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: [col] 20px [col] 30px [col] 30px [col] 30px;
+    grid-template-rows: [row] auto [row] auto [row] auto [row] auto [row] auto [row];
+    background-color: #ebfbff;
+
+}
+
+.box{
+    background-color: #ebfbff;
+    color: #000;
+    padding: 0;
+    font-size: 100%;
+}
+
+.a{
+    grid-column: col;
+    grid-row: row 2/ span 2;
+}
+
+.b {
+    grid-column: 1;
+    grid-row: row 4 / span 2;
+}
+
+.c{
+    grid-column: col 2;
+    grid-row: row;
+}
+
+.d {
+    grid-column: col 3;
+    grid-row: row;
+}
+
+.e {
+    grid-column: col 4;
+    grid-row: row;
+}
+
+.f {
+    grid-column: col 2 / span 3;
+    grid-row: row 2/ span 4;
+}
+
+.g {
+    grid-column: col 2;
+    grid-row: row 6;
+}
+
+.h {
+    grid-column: col 3;
+    grid-row: row 6;
+}
+
+.i {
+    grid-column: col 4;
+    grid-row: row 6;
+}
+/* export const Post = styled.post 
+    width: 1000 px;
+    max-width: 100%;
+    padding: 40px 40 px;
+    
+` */
+
