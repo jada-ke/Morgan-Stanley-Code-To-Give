@@ -7,7 +7,7 @@ const Discover = () => {
         <>
             <h1>Discover page in construction</h1>
             <Map />
-            <ICTable/>
+            <ICTable />
         </>
     );
 };
