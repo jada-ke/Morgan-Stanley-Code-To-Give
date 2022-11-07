@@ -1,5 +1,5 @@
 import React from "react";
-import {ICTitle,ICDescription,styles} from "../Components/ICDetails";
+import {ICTitle,ICDescription,styles} from "../Components/ICDetails/ICDetailsElements";
 import {CommentSection} from 'react-comments-section'
 import 'react-comments-section/dist/index.css'
 

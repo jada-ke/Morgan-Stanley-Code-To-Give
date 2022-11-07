@@ -1,10 +1,15 @@
-import Navbar from "../Components/Navbar"
-import Sidebar from "../Components/Sidebar"
 import React, {useState} from 'react';
+import { FormThemeProvider } from 'react-form-component'
+import CForm from '../Components/ICForm/CForm'
 
 const Challenges = () => {
     return (
-        <h1>Challenges page to put here</h1>
+        <>
+        <h1>Let's launch a new Challenge!</h1>
+        <br/>
+        <FormThemeProvider>
+            <CForm/>
+        </FormThemeProvider></>
     );
 };
 

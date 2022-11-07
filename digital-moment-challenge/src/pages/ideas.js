@@ -1,10 +1,16 @@
-import Navbar from "../Components/Navbar"
-import Sidebar from "../Components/Sidebar"
+import { FormThemeProvider } from 'react-form-component'
+import CForm from '../Components/ICForm/CForm'
 import React, {useState} from 'react';
 
 const Ideas = () => {
     return (
-        <h1>Ideas page to put here</h1>
+        <>
+            <h1>Share an Idea with your community or the World</h1><br />
+            <FormThemeProvider>
+                <CForm />
+            </FormThemeProvider>
+        </>
+        
     );
 };
 

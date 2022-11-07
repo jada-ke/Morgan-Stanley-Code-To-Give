@@ -52,7 +52,7 @@ insert into challenges values(300,'Dan','2022-10-05',7,13,'SAMPLE','500017','New
 insert into challenges values(301,'Wick','2022-09-25',7,53,'Test','700017','Lahore','Pakisthan',31.520370,74.358749,'Peace');
 insert into challenges values(302,'Sam','2022-05-15',6,16,'SampleTest','500117','Cape Town','South Africa',-33.924870,18.424055,'Poverty');
 insert into challenges values(401,'Cobbie','2022-04-15',4,12,'Test','900117','Canberra','Australia',58.152161,-471.912720,'Electricity');
-insert into challenges values(401,'Natalie','2022-01-25',41,2,'TestSample','30117','Kingston','Jamaica',46.583038,-80.706697,'Inequality');
+insert into challenges values(402,'Natalie','2022-01-25',41,2,'TestSample','30117','Kingston','Jamaica',46.583038,-80.706697,'Inequality');
 
 COMMIT;
 
