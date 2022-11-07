@@ -48,6 +48,7 @@ const InfoSection2 = () => {
                     spy={true}
                     exact="true"
                     offset={-80}
+                    to="/ideas"
                   >
                     Go To Ideas
                   </Button>
