@@ -49,6 +49,7 @@ const InfoSection = () => {
                     spy = {true}
                     exact = "true"
                     offset = {-80}
+                    to = "/challenges"
                   >
                     Create A Challenge
                   </Button>
