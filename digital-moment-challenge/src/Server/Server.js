@@ -19,7 +19,7 @@ app.get('/search/user/:filter', async (req, res) => {
   try {
       
     
-    const response = await pool.query('SELECT * from UserInfo WHERE UPPER(First_name) LIKE UPPER($1) OR UPPER(Last_name) LIKE UPPER($1)', [filter]);
+    const response = await pool.query('SELECT * from UserInfo WHERE UPPER(First_name) LIKE UPPER($1) OR UPPER(Last_name) LIKE UPPER($1);', [filter]);
     
     res.json(response.rows);
   
@@ -202,14 +202,26 @@ app.get('/Idea/:id', async (req, res) => {
   })
 
 
-  app.get('/search/ideas/:filter', async (req, res) => {
-  
-  
-    var filter = JSON.parse(req.params.filter)
-    var pcode = '%'+filter[pcode] +'%'
-    var city = '%'+filter[city] +'%'
-    var country = '%'+filter[country] +'%'
+  app.get('/search/ideas/:city/:country/:postcode', async (req, res) => {
+    if (req.params.country=="empty"){
+      var country = '%%'
+    }
+    else{var country = '%'+req.params.country +'%'}
+    console.log(country)
+    if (req.params.city=="empty"){
+      var city = '%%'
+    }
+    else{var city = '%'+req.params.city +'%'}
     
+    console.log(city)
+    if (req.params.postcode=="empty"){
+      var pcode = '%%'
+    }
+    else{var pcode = '%'+req.params.postcode +'%'}
+    console.log(pcode)
+    
+    
+ 
     try {
         
       
@@ -219,7 +231,7 @@ app.get('/Idea/:id', async (req, res) => {
     
         
       } catch (error) {
-        console.log(error.message)
+        
       }
       
     

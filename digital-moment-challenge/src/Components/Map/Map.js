@@ -18,7 +18,7 @@ export class Map extends Component {
                     crossorigin="" 
                 />
             </head>
-            <ICMapContainer center={[0,0]} zoom={2} scrollWheelZoom={true}>
+            <ICMapContainer center={[0,0]} zoom={2} scrollWheelZoom={true} style={{width: '100%', Height : '100%'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
