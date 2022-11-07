@@ -15,7 +15,10 @@ export class ICTable extends Component{
     render() {
         
         
-        const items = this.props.ic
+        var items = this.props.ic
+        if(items.length>3){
+            items=[items[0],items[1],items[2]]
+        }
         return(
             <>
             <FilterTab parentCallback = {this.handleCallback}></FilterTab>

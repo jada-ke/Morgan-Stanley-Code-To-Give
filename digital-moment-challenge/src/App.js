@@ -10,6 +10,7 @@ import Ideas from "./pages/ideas";
 import Signup from "./pages/signup";
 import About from "./pages/about";
 import Discover from "./pages/discover";
+import ICDetails from "./pages/icdetails"
 
 
 
@@ -30,6 +31,8 @@ function App() {
         <Route path='/discover' exact element={<Discover/>} />
         <Route path='/signin' exact element={<Login/>} />
         <Route path='/signup'exact element={<Signup/>} />
+        <Route path='/signup'exact element={<Signup/>} />
+        <Route path='/icdetails/:id/:type' element={<ICDetails /> }></Route>
       </Routes>
     </Router>
   );

@@ -41,7 +41,7 @@ insert into ideas values(300,'David','2022-10-05',7,13,'SAMPLE','500017','New De
 insert into ideas values(301,'Jake','2022-09-05',7,53,'Test','700017','Lahore','Pakisthan',31.520370,74.358749,'Peace');
 insert into ideas values(302,'Amy','2022-05-05',6,16,'SampleTest','500117','Cape Town','South Africa',-33.924870,18.424055,'Poverty');
 insert into ideas values(401,'Rob','2022-07-15',4,12,'Test','900117','Canberra','Australia',-35.280937,149.130005,'Electricity');
-insert into ideas values(401,'Robin','2022-07-25',41,2,'TestSample','30117','Kingston','Jamaica',38.280937,-149.130005,'Inequality');
+insert into ideas values(402,'Robin','2022-07-25',41,2,'TestSample','30117','Kingston','Jamaica',38.280937,-149.130005,'Inequality');
 
 insert into challenges values(200,'Jon Snow','2022-11-05',8,13,'SAMPLE','H2X 2V1','Quebec City','Canada',46.8131,-71.2075,'Peace');
 insert into challenges values(201,'Stark','2022-12-03',6,12,'Test','H3Y 2V4','Vancouver','Canada',49.2827,123.1207,'Water');

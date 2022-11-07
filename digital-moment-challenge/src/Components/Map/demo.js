@@ -16,24 +16,15 @@ import ShareIcon from '@mui/icons-material/Share';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {useNavigate}  from 'react-router-dom';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+
+
 
 export default function RecipeReviewCard({item}) {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card sx={{ maxWidth: 560}}>
@@ -68,14 +59,12 @@ export default function RecipeReviewCard({item}) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
+        <IconButton 
+        onClick={() => { console.log("ouf"); navigate(`/icdetails/${item.id}/idea`)}}
+        aria-label="next">
           <ArrowCircleRightIcon />
-        </ExpandMore>
+        </IconButton>
+        
       </CardActions>
 
     </Card>
