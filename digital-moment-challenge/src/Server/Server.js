@@ -202,30 +202,26 @@ app.get('/Idea/:id', async (req, res) => {
   })
 
 
-  app.get('/search/ideas/:city/:country/:postcode', async (req, res) => {
+  app.get('/search/ideas/:city/:country', async (req, res) => {
     if (req.params.country=="empty"){
       var country = '%%'
     }
     else{var country = '%'+req.params.country +'%'}
-    console.log(country)
+    console.log(country);
     if (req.params.city=="empty"){
       var city = '%%'
     }
     else{var city = '%'+req.params.city +'%'}
+    console.log(city);
     
-    console.log(city)
-    if (req.params.postcode=="empty"){
-      var pcode = '%%'
-    }
-    else{var pcode = '%'+req.params.postcode +'%'}
-    console.log(pcode)
+
     
     
  
     try {
         
       
-      const response = await pool.query('SELECT * from ideas WHERE UPPER(Postal_code) LIKE UPPER($1) AND UPPER(City) LIKE UPPER($2) AND UPPER(Country) LIKE UPPER($3) ORDER BY UpVotes DESC, DownVotes ASC;', [pcode,city,country]);
+      const response = await pool.query('SELECT * from ideas WHERE  UPPER(City) LIKE UPPER($1) AND UPPER(Country) LIKE UPPER($2) ORDER BY UpVotes DESC, DownVotes ASC;', [city,country]);
       
       res.json(response.rows);
     
@@ -271,7 +267,89 @@ app.get('/Idea/:id', async (req, res) => {
       
       })
 
+// challenges
+app.get('/Challenge/:id', async (req, res) => {
 
+  try {
+    
+  const { id } = req.params;
+  const response =   await pool.query("SELECT * from challenges WHERE ID = $1;", [id]);
+  
+  res.json(response.rows[0]);
+
+    
+  } catch (error) {
+    console.log(error.message)
+  }
+  
+
+})
+
+
+app.get('/search/challenges/:city/:country', async (req, res) => {
+  if (req.params.country=="empty"){
+    var country = '%%'
+  }
+  else{var country = '%'+req.params.country +'%'}
+  console.log(country);
+  if (req.params.city=="empty"){
+    var city = '%%'
+  }
+  else{var city = '%'+req.params.city +'%'}
+  console.log(city);
+  
+
+  
+  
+
+  try {
+      
+    
+    const response = await pool.query('SELECT * from challenges WHERE  UPPER(City) LIKE UPPER($1) AND UPPER(Country) LIKE UPPER($2) ORDER BY UpVotes DESC, DownVotes ASC;', [city,country]);
+    
+    res.json(response.rows);
+  
+      
+    } catch (error) {
+      
+    }
+    
+  
+  })
+
+  app.get('/Challenges', async (req, res) => {
+
+      try {
+        
+      const { id } = req.params;
+      const response =   await pool.query("SELECT * from challenges;");
+      
+      res.json(response.rows);
+    
+        
+      } catch (error) {
+        console.log(error.message)
+      }
+      
+    
+    })
+
+    app.get('/ChallengesTrending', async (req, res) => {
+
+      try {
+        
+      const { id } = req.params;
+      const response =   await pool.query("SELECT * from challenges ORDER BY UpVotes DESC, DownVotes ASC;");
+      
+      res.json(response.rows);
+    
+        
+      } catch (error) {
+        console.log(error.message)
+      }
+      
+    
+    })
 
       app.listen(5001, () => {
         console.log("server has started on port 5001");

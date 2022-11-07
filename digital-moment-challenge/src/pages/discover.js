@@ -8,30 +8,45 @@ const Discover = () => {
 
 
     const [items, setItems] = useState([]);
+    const [challenges, setChallenges] = useState([]);
     var state;
     
   function handleCallback(childData) {
     // 👇️ take parameter passed from Child component
-    
+    var city;
+    var country;
     if(childData["city"]==""){
-      childData["city"]="empty"
+       city="empty";
     }
+    else{city=childData["city"]}
     if(childData["country"]==""){
-      childData["country"]="empty"
+      var country="empty";
     }
-    if(childData["postal_code"]==""){
-      childData["postal_code"]="empty"
-    }
-
+    else{country=childData["country"]}
     
-      fetch(server+`/search/ideas/${childData["city"]}/${childData["country"]}/${childData["postal_code"]}`, { method: "GET" })
+    if(childData["type"]=="idea"){
+      fetch(server+`/search/ideas/${city}/${country}`, { method: "GET" })
         .then(res => res.json())
         .then(
           (result) => {
-            console.log(result);
+            
             setItems(result);
+            setChallenges([])
           }
         )
+    }
+    else{
+      fetch(server+`/search/challenges/${city}/${country}`, { method: "GET" })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            setItems([])
+            setChallenges(result);
+          }
+        )
+    }
+    
+      
     
   };
    
@@ -43,16 +58,32 @@ const Discover = () => {
           (result) => {
             setItems(result);
           }
+        ).then(
+          fetch(server+`/ChallengesTrending`, { method: "GET" })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            setChallenges(result);
+          }
         )
+        )
+
     }, [])
+    for (var i in challenges) {
+      
+      challenges[i]["type"]="challenge";
+   }
+    for (var i in items) {
+      items[i]["type"]="idea";
+  }
 
     return (
         <>
               <CssBaseline />
             <div className="row h-100">
-            <div className="col-md-3 p-0 bg-light"><ICTable parentCallback = {handleCallback} ic={items}/> </div>
+            <div className="col-md-3 p-0 bg-light"><ICTable parentCallback = {handleCallback} ic={items} challenges={challenges}/> </div>
             <div className="col-md-9 p-0">
-              <Map markers={items}/>
+              <Map markers={items} challenges={challenges}/>
             </div>
           </div>
             

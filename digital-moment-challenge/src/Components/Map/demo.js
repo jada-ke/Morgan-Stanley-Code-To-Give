@@ -25,9 +25,17 @@ export default function RecipeReviewCard({item}) {
   const navigate = useNavigate();
   const [expanded, setExpanded] = React.useState(false);
 
+  let dropzoneStyle = {
+    backgroundColor: `#FFFFFF`,
+  };
+  if(item.type=="challenge"){
+    dropzoneStyle = {
+      backgroundColor: `#d4d4d4`,
+    };
+  }
 
   return (
-    <Card sx={{ maxWidth: 560}}>
+    <Card sx={{ maxWidth: 560}} style={dropzoneStyle}>
       <CardHeader
                                 avatar={
                                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

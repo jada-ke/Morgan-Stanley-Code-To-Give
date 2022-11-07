@@ -50,7 +50,7 @@ const InfoSection = () => {
                     exact = "true"
                     offset = {-80}
                   >
-                    Go To Challenges
+                    Create A Challenge
                   </Button>
                 </BtnWrap>
               </TextWrapper>

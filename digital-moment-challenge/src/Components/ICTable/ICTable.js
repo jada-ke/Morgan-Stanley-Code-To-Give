@@ -1,10 +1,25 @@
-import React, {Component} from "react";
+import React, {Component,useState} from "react";
 import FilterTab from "./FilterTab";
-import Demo from '../Map/demo';
+
+import Pagi from "./Pagi";
+
+
+function GetSortOrder(prop) {    
+    return function(a, b) {    
+        if (a[prop] > b[prop]) {    
+            return 1;    
+        } else if (a[prop] < b[prop]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}
+
 export class ICTable extends Component{
+    
      state = {
             city : '',
-            postal_code : '',
+            type : '',
             country : ''
         }
     handleCallback = (childData) =>{
@@ -13,22 +28,21 @@ export class ICTable extends Component{
         this.props.parentCallback(this.state);
  }
     render() {
-        
-        
         var items = this.props.ic
-        if(items.length>3){
-            items=[items[0],items[1],items[2]]
-        }
+        
+        var challenges = this.props.challenges
+        var children = items.concat(challenges)
+        children.sort(GetSortOrder("upvotes"));
+        
+        
         return(
             <>
             <FilterTab parentCallback = {this.handleCallback}></FilterTab>
             <hr></hr>
-            <h2 className="m-3"> Featured </h2>
-            {items.map(item =>
-                <div className="m-3">
-                    <Demo item={item}/>
-                </div>
-            )}
+            <h2 className="m-3 text-center"> Results</h2>
+            <Pagi parentToChild={children}/>
+            
+            
             </>
         )
     }
