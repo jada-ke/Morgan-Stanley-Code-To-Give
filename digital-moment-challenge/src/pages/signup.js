@@ -1,15 +1,39 @@
-import React from 'react';
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import Card from 'react-bootstrap/Card'
+import { useRef, useState, useEffect} from 'react';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        The Hub
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
+const theme = createTheme();
+var server = 'http://localhost:5001'
+export default function SignUp() {
 
-const Signup = () => {
-
-    const id ='DEFAULT';
+  const id ='DEFAULT';
     const [success, setSuccess] = useState(false);
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
@@ -71,157 +95,203 @@ const Signup = () => {
     }
 
   return (
-    
-
-    <>
-    {success? (
-
-    <Navigate to={`/`} replace={true} /> // send to ?
-    ) : (
-      <>
-      <br></br>
-<Card border="dark" style={{ width: '30%',  marginLeft:'auto', marginRight: 'auto', borderRadius: '12px'}}>
-                <Card.Header><h1>Sign Up</h1></Card.Header>
-                <Card.Body>
-      <div style={{ margin: '.5rem' , alignContent : 'end'}} >
-      
-      <form onSubmit={handleSubmit}  >
-          <label htmlFor="email" style={{ margin: '.5rem' }}>Username:</label>
-                      <input type="text"
-                      id='email'
-                      autoComplete ='off'
-                      onChange={(e) => setEmail(e.target.value)}
-                      value = {email}
-                      required  
-          />
-          <br />
-
-          <label htmlFor="password" style={{ margin: '.5rem' }}>Password:</label>
-                      <input type="password"
-                      id='password'
-                      autoComplete ='off'
-                      onChange={(e) => setPwd(e.target.value)}
-                      value = {pwd}
-                      required  
-          />
-          <br />
-
-          <label htmlFor="firstName" style={{ margin: '.5rem' }}>firstName:</label>
-                      <input type="text"
-                      id='firstName'
-                      autoComplete ='off'
-                      onChange={(e) => setFirstName(e.target.value)}
-                      value = {firstName}
-                      required  
-          />
-          <br />
-          <label htmlFor="lastName" style={{ margin: '.5rem' }}>lastName:</label>
-                      <input type="text"
-                      id='lastName'
-                      autoComplete ='off'
-                      onChange={(e) => setLastName(e.target.value)}
-                      value = {lastName}
-                      required  
-          />
-          <br />
-          
-          
-          <label htmlFor="phoneNum" style={{ margin: '.5rem' }}>phoneNum:</label>
-                      <input type="number"
-                      id='phoneNum'
-                      autoComplete ='off'
-                      onChange={(e) => setPhoneNum(e.target.value)}
-                      value = {phoneNum}
-                      required  
-          />
-          <br />
-          
-         {/* Add date picker */}
-
-          <br />
-          <label htmlFor="gender" style={{ margin: '.5rem' }}>gender:</label>
-                      <input type="text"
-                      id='gender'
-                      autoComplete ='off'
-                      onChange={(e) => setGender(e.target.value)}
-                      value = {gender}
-                      required  
-          />
-          <br />
-          <label htmlFor="streetNum" style={{ margin: '.5rem' }}>streetNum:</label>
-                      <input type="number"
-                      id='streetNum'
-                      autoComplete ='off'
-                      onChange={(e) => setStreetNum(e.target.value)}
-                      value = {streetNum}
-                      required  
-          />
-          <br />
-          <label htmlFor="streetName" style={{ margin: '.5rem' }}>streetName:</label>
-                      <input type="text"
-                      id='streetName'
-                      autoComplete ='off'
-                      onChange={(e) => setStreetName(e.target.value)}
-                      value = {streetName}
-                      required  
-          />
-          <br />
-          <label htmlFor="postalCode" style={{ margin: '.5rem' }}>postalCode:</label>
-                      <input type="text"
-                      id='postalCode'
-                      autoComplete ='off'
-                      onChange={(e) => setPostalCode(e.target.value)}
-                      value = {postalCode}
-                      required  
-          />
-          <br />
-          <label htmlFor="city" style={{ margin: '.5rem' }}>city:</label>
-                      <input type="text"
-                      id='city'
-                      autoComplete ='off'
-                      onChange={(e) => setCity(e.target.value)}
-                      value = {city}
-                      required  
-          />
-          <br />
-          <label htmlFor="province" style={{ margin: '.5rem' }}>province:</label>
-                      <input type="text"
-                      id='province'
-                      autoComplete ='off'
-                      onChange={(e) => setProvince(e.target.value)}
-                      value = {province}
-                      required  
-          />
-          <br />
-
-          <label htmlFor="country" style={{ margin: '.5rem' }}>country:</label>
-                      <input type="text"
-                      id='country'
-                      autoComplete ='off'
-                      onChange={(e) => setCountry(e.target.value)}
-                      value = {country}
-                      required  
-          />
-          <br />
-
-          <button>
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  onChange={(e) => setLastName(e.target.value)}
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  onChange={(e) => setPwd(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="gender"
+                  required
+                  fullWidth
+                  id="gender"
+                  label="Gender"
+                  onChange={(e) => setGender(e.target.value)}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="dob"
+                  label="Date of Birth (YYYY-MM-DD)"
+                  name="dob"
+                  onChange={(e) => setDob(e.target.value)}
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} >
+                <TextField
+                  autoComplete="given-name"
+                  name="phonenumber"
+                  required
+                  fullWidth
+                  id="phonenumber"
+                  label="Phone number"
+                  onChange={(e) => setPhoneNum(e.target.value)}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <TextField
+                  autoComplete="given-name"
+                  name="streetnum"
+                  required
+                  fullWidth
+                  id="stnum"
+                  label="Street Number"
+                  onChange={(e) => setStreetNum(e.target.value)}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={9}>
+                <TextField
+                  required
+                  fullWidth
+                  id="streetname"
+                  label="Street Name"
+                  name="stname"
+                  onChange={(e) => setStreetName(e.target.value)}
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="postalcode"
+                  required
+                  fullWidth
+                  id="postcode"
+                  label="Postal Code"
+                  onChange={(e) => setPostalCode(e.target.value)}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="province"
+                  label="Porvince"
+                  name="porvince"
+                  onChange={(e) => setProvince(e.target.value)}
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="city"
+                  required
+                  fullWidth
+                  id="ciry"
+                  label="City"
+                  onChange={(e) => setCity(e.target.value)}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="country"
+                  label="Country"
+                  name="country"
+                  onChange={(e) => setCountry(e.target.value)}
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Sign Up
-          </button>
-      </form>
-     
-  </div>
-  </Card.Body>
-            </Card></>
-    )}
-  
-  </>
-
-
-
-
-
-    
-  )
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 5 }} />
+      </Container>
+    </ThemeProvider>
+  );
 }
 
-export default Signup
+

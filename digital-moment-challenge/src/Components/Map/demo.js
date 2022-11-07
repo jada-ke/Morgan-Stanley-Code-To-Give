@@ -47,12 +47,12 @@ export default function RecipeReviewCard({item}) {
                                     <MoreVertIcon />
                                 </IconButton>
                                 }
-                                title="Title"
+                                title={item.title}
                                 subheader={item.dateposted.split("T")[0]}
                             />
                             <CardContent>
                                 <Typography variant="body2" color="text.secondary">
-                                {item.description}
+                                {item.description.slice(0,100)+"..."}
                                 </Typography>
                             </CardContent>
       <CardActions disableSpacing>

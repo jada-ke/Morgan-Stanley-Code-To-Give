@@ -57,7 +57,7 @@ const ICDetails = () => {
             <Card.Header as="h5"> 
             <   div class="row" >
                     <div class="col-md-10 text-left">
-                    {item.description}
+                    {item.title}
                     </div>
                     <div class="col-md-2 text-right">
                     <Chip label={item.tag} variant="outlined" />

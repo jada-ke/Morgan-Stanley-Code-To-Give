@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Home from "./pages";
 import Sidebar from "./Components/Sidebar";
 import Challenges from "./pages/challenges";
-import Login from "./pages/login";
+import Login from "./pages/login"
 import Ideas from "./pages/ideas";
 import Signup from "./pages/signup";
 import About from "./pages/about";
@@ -30,7 +30,6 @@ function App() {
         <Route path='/ideas' exact element={<Ideas/>} />
         <Route path='/discover' exact element={<Discover/>} />
         <Route path='/signin' exact element={<Login/>} />
-        <Route path='/signup'exact element={<Signup/>} />
         <Route path='/signup'exact element={<Signup/>} />
         <Route path='/icdetails/:id/:type' element={<ICDetails /> }></Route>
       </Routes>

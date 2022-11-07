@@ -50,7 +50,7 @@ const InfoSection2 = () => {
                     offset={-80}
                     to="/ideas"
                   >
-                    Go To Ideas
+                    Share an Idea!
                   </Button>
                 </BtnWrap>
               </TextWrapper>
